@@ -31,3 +31,17 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+    - name: wechat-work robot message
+      uses: fifsky/wechat-work-action@master
+      with:
+        url: ${{ secrets.WECHATWORK_WEBHOOK}}
+        type: markdown
+        content: |
+          # Tips
+          ## Hello
+          > from github action message
+          > ^_^
+          - repository: ${{ github.repository }}
+          - committer: ${{ github.actor }}
+          - compare: [view](${{ github.event.compare }})
+          - job status: ${{ job.status }}

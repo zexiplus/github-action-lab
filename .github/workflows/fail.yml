@@ -1,0 +1,12 @@
+name: fail action
+
+on:
+  push:
+    branches: ['master']
+
+jobs: 
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+    - name: run fail
+    - run: exit 3
